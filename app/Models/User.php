@@ -20,7 +20,7 @@ class User extends Authenticatable
     protected $guarded = [];
 
     public function clas() {
-	    return $this->belongsTo(User::class, 'clas_id');
+	    return $this->belongsTo(Clas::class, 'clas_id');
     }
 
     /**
