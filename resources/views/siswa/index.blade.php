@@ -11,7 +11,7 @@
     <table border="1" cellpadding="10" cellspacing="0">
         <thead>
             <tr>
-                <th>poto</th>
+                <th>Foto</th>
                 <th>Nama</th>
                 <th>Kelas</th>
                 <th>NISN</th>
