@@ -28,9 +28,9 @@
         <div>
             <label for="kelas">Kelas PPLG</label><br>
             <select name="kelas_id">
-                <option value="1">XII PPLG 1</option>
-                <option value="2">XII PPLG 2</option>
-                <option value="3">XII PPLG 3</option>
+                @foreach($clases as $clas)
+                    <option value="{{ $clas->id }}">{{ $clas->name }}</option>
+                @endforeach
             </select><br>
             @error('kelas_id')
                 <small style="color: #FF0000">{{ $message }}</small>

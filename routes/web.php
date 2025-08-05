@@ -9,3 +9,4 @@ Route::get('siswa/create', [SiswaController::class, 'create']);
 
 Route::post('siswa/store', [SiswaController::class, 'store']);
 
+ 
