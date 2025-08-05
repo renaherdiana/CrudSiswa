@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-</head>
+</head> 
 <body>
     <h1>Data Siswa</h1>
     <a href="siswa/create"><button type="button">Tambah</button></a><br><br>
@@ -24,7 +24,7 @@
         </thead>
         <tbody>
             <tr>
-                <td></td>
+                <img src="{{ asset('image/image.jpg') }}"width=="50" alt="">
                 <td>Rena Herdiana</td>
                 <td>XII PPLG 3</td>
                 <td>1111</td>
