@@ -17,26 +17,29 @@
                 <th>NISN</th>
                 <th>Alamat</th>
                 <th>Email</th>
-                <th>Paswoard</th>
+                
                 <th>No Handphone</th>
                 <th>Aksi</th>
             </tr>
         </thead>
         <tbody>
+            @foreach ($siswas as $siswa)
             <tr>
-                <img src="{{ asset('image/image.jpg') }}"width=="50" alt="">
-                <td>Rena Herdiana</td>
-                <td>XII PPLG 3</td>
-                <td>1111</td>
-                <td>jln.cto</td>
-                <td>renaherdiana8@gmail.com</td>
-                <td>1234</td>
-                <td>0895335053813</td>
+                <td><img src="{{ asset('storage/'.$siswa->photo) }}" alt="" width="40"></td>
+                <td>{{ $siswa->name }}</td>
+                <td>{{ $siswa->clas->name }}</td>
+                <td>{{ $siswa->nisn }}</td>
+                <td>{{ $siswa->alamat }}</td>
+                <td>{{ $siswa->email }}</td>
+                
+                <td>{{ $siswa->no_handphone }}</td>
                 <td>
                     <button>Edit</button>
                     <button>Hapus</button>
+                    <button>Detail</button>
                 </td>
             </tr>
+            @endforeach
         </tbody>
     </table>
 </body>
