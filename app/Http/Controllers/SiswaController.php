@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Clas;
+use Illuminate\Support\Facades\Storage;
+
 
 class SiswaController extends Controller
 {
@@ -46,4 +48,20 @@ class SiswaController extends Controller
 
         return redirect('/');
     }
+
+    
+    //fungsi delete
+    public function destroy($id){
+        //cari user di dalam database berdasarkan ai yang di kirimkan
+        $datauser = User::find($id);
+        //lakukan delete pada data tersebut jika data tersebut ada
+        if ($datauser != null) {
+            Storage::disk('public')->delete($datauser->photo);
+            $datauser->delete();
+        }
+        //kembalikan user ke halaman home
+        return redirect('/');
+    }
+
+
 }
