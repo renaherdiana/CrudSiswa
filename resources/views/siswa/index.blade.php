@@ -18,7 +18,7 @@
                 <th>Alamat</th>
                 <th>Email</th>
                 
-                <th>No Handphone</th>
+                
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -31,12 +31,12 @@
                 <td>{{ $siswa->nisn }}</td>
                 <td>{{ $siswa->alamat }}</td>
                 <td>{{ $siswa->email }}</td>
-                <td>{{ $siswa->no_handphone }}</td>
+                
             <td>
                 <a href="/siswa/edit{{ $siswa->id }}" style="padding: 5px 10px; text-decoration: none; border: 1px solid #aaa; border-radius: 4px; margin-right: 5px;">Edit</a>
-                <a href="/siswa/detail{{ $siswa->id }}" style="padding: 5px 10px; text-decoration: none; border: 1px solid #aaa; border-radius: 4px; margin-right: 5px;">Detail</a>
+                <a href="/siswa/show/{{ $siswa->id }}" style="padding: 5px 10px; text-decoration: none; border: 1px solid #aaa; border-radius: 4px; margin-right: 5px;">Detail</a>
                 <a href="/siswa/delete/{{ $siswa->id }}" onclick="return confirm('Yakin ingin menghapus data ini?')" style="padding: 5px 10px; text-decoration: none; border: 1px solid #aaa; border-radius: 4px;">Delete</a>
-        </td>
+            </td>
 
                 </tr>
             @endforeach
