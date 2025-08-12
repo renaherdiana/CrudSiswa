@@ -7,10 +7,9 @@
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #fff0f5; /* pink muda background */
+            background-color: #fff0f5;
             padding: 40px;
         }
-
         .container {
             max-width: 600px;
             margin: auto;
@@ -18,36 +17,30 @@
             padding: 25px 30px;
             border-radius: 15px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            border: 2px solid #ffc0cb; /* garis pink lembut */
+            border: 2px solid #ffc0cb;
         }
-
         h1 {
             text-align: center;
             margin-bottom: 20px;
-            color: #d63384; /* pink tua */
+            color: #d63384;
         }
-
         .profile-photo {
             display: flex;
             justify-content: center;
             margin-bottom: 20px;
         }
-
         .profile-photo img {
             border-radius: 10px;
             object-fit: cover;
-            border: 3px solid #ffb6c1; /* pink lembut */
+            border: 3px solid #ffb6c1;
         }
-
         form div {
             margin-bottom: 15px;
         }
-
         label {
             font-weight: bold;
-            color: #d63384; /* pink tua */
+            color: #d63384;
         }
-
         input, select {
             width: 100%;
             padding: 10px;
@@ -57,20 +50,17 @@
             font-size: 14px;
             background-color: #fffafc;
         }
-
         input:focus, select:focus {
-            border-color: #ff69b4; /* hot pink */
+            border-color: #ff69b4;
             outline: none;
             box-shadow: 0 0 5px rgba(255,105,180,0.5);
         }
-
         small {
             display: block;
             margin-top: 4px;
         }
-
         button {
-            background-color: #ff69b4; /* hot pink */
+            background-color: #ff69b4;
             color: white;
             border: none;
             padding: 10px 15px;
@@ -79,11 +69,9 @@
             font-size: 15px;
             width: 100%;
         }
-
         button:hover {
-            background-color: #d63384; /* pink tua */
+            background-color: #d63384;
         }
-
         .back-btn {
             display: block;
             text-align: center;
@@ -92,7 +80,6 @@
             color: #d63384;
             font-weight: bold;
         }
-
         .back-btn:hover {
             color: #ff69b4;
         }
@@ -107,8 +94,9 @@
             <img width="100" src="{{ asset('storage/'.$datauser->photo) }}">
         </div>
 
-        <form action="/siswa/store" method="post" enctype="multipart/form-data">
+        <form action="{{ route('siswa.update', $datauser->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
+            @method('PUT')
 
             <div>
                 <label for="photo">Photo</label>
@@ -117,7 +105,7 @@
 
             <div>
                 <label for="name">Nama</label>
-                <input type="text" name="name" value="{{ $datauser->name }}">
+                <input type="text" name="name" value="{{ old('name', $datauser->name) }}">
                 @error('name')
                     <small style="color: #FF0000">{{ $message }}</small>
                 @enderror
@@ -137,7 +125,7 @@
 
             <div>
                 <label for="nisn">NISN</label>
-                <input type="text" name="nisn" value="{{ $datauser->nisn }}">
+                <input type="text" name="nisn" value="{{ old('nisn', $datauser->nisn) }}">
                 @error('nisn')
                     <small style="color: #FF0000">{{ $message }}</small>
                 @enderror
@@ -145,7 +133,7 @@
 
             <div>
                 <label for="alamat">Alamat</label>
-                <input type="text" name="alamat" value="{{ $datauser->alamat }}">
+                <input type="text" name="alamat" value="{{ old('alamat', $datauser->alamat) }}">
                 @error('alamat')
                     <small style="color: #FF0000">{{ $message }}</small>
                 @enderror
@@ -153,7 +141,7 @@
 
             <div>
                 <label for="email">Email</label>
-                <input type="text" name="email" value="{{ $datauser->email }}">
+                <input type="text" name="email" value="{{ old('email', $datauser->email) }}">
                 @error('email')
                     <small style="color: #FF0000">{{ $message }}</small>
                 @enderror
@@ -170,7 +158,7 @@
 
             <div>
                 <label for="no_handphone">No Handphone</label>
-                <input type="text" name="no_handphone" value="{{ $datauser->no_handphone }}">
+                <input type="text" name="no_handphone" value="{{ old('no_handphone', $datauser->no_handphone) }}">
                 @error('no_handphone')
                     <small style="color: #FF0000">{{ $message }}</small>
                 @enderror
