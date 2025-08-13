@@ -102,7 +102,7 @@ class SiswaController extends Controller
         $datauser->email = $request->email;
         $datauser->no_handphone = $request->no_handphone;
 
-        // jika password diisi, update password
+        // cek apakah user merubah password
         if ($request->filled('password')) {
             $datauser->password = bcrypt($request->password);
         }

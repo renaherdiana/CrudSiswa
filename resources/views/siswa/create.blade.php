@@ -108,7 +108,7 @@
             </div>
 
             <div>
-                <label for="kelas">Kelas PPLG</label>
+                <label for="kelas">Kelas</label>
                 <select name="kelas_id">
                     @foreach($clases as $clas)
                         <option value="{{ $clas->id }}">{{ $clas->name }}</option>
