@@ -112,7 +112,7 @@
             </div>
 
             <div>
-                <label for="kelas">Kelas PPLG</label>
+                <label for="kelas">Kelas</label>
                 <select name="kelas_id">
                     @foreach($clases as $clas)
                         <option {{ $clas->id == $datauser->clas_id ? 'selected' : '' }} value="{{ $clas->id }}">{{ $clas->name }}</option>
