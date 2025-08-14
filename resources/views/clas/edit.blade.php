@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Kelas</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fff0f5; 
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 25px 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border: 2px solid #ffc0cb;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #d63384;
+        }
+
+        form div {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #d63384;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 8px;
+            border: 1px solid #ffc0cb;
+            font-size: 14px;
+            background-color: #fffafc;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #ff69b4;
+            outline: none;
+            box-shadow: 0 0 5px rgba(255,105,180,0.5);
+        }
+
+        textarea {
+            resize: none;
+            height: 100px;
+        }
+
+        button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #d63384;
+        }
+
+        .back-btn {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #d63384;
+            font-weight: bold;
+        }
+
+        .back-btn:hover {
+            color: #ff69b4;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Edit Kelas</h1>
+
+    <form action="{{ route('clas.update', $class->id) }}" method="POST">
+        @csrf
+        @method('PUT')
+
+        <div>
+            <label for="name">Nama Kelas</label>
+            <input type="text" name="name" id="name" value="{{ old('name', $class->name) }}" required>
+            @error('name')
+                <small style="color: #FF0000">{{ $message }}</small>
+            @enderror
+        </div>
+
+        <div>
+            <label for="description">Deskripsi</label>
+            <textarea name="description" id="description">{{ old('description', $class->description) }}</textarea>
+            @error('description')
+                <small style="color: #FF0000">{{ $message }}</small>
+            @enderror
+        </div>
+
+        <button type="submit">Update</button>
+    </form>
+
+    <a href="{{ route('clas.index') }}" class="back-btn">Kembali</a>
+</div>
+
+</body>
+</html>

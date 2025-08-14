@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Siswa</title>
+    <title>Data Kelas</title>
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -42,7 +42,7 @@
 
         /* Container */
         .container {
-            max-width: 1100px;
+            max-width: 900px;
             margin: 30px auto;
             padding: 20px;
             background: white;
@@ -88,16 +88,6 @@
             transform: translateY(-2px);
         }
 
-        .btn-detail {
-            background-color: #ff85a2;
-            color: white;
-        }
-
-        .btn-detail:hover {
-            background-color: #e87491;
-            transform: translateY(-2px);
-        }
-
         .btn-delete {
             background-color: #ff4d6d;
             color: white;
@@ -139,61 +129,41 @@
         tr:hover {
             background-color: #ffe6ef;
         }
-
-        img {
-            width: 45px;
-            height: 45px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 2px solid #ff69b4;
-            transition: transform 0.2s;
-        }
-
-        img:hover {
-            transform: scale(1.1);
-        }
     </style>
 </head>
 <body>
 
     <!-- Header dengan menu -->
     <header>
-        <div>📚 Data Siswa</div>
-         <nav>
+        <div>🏫 Data Kelas</div>
+        <nav>
             <a href="{{ route('siswa.index') }}">Menu Siswa</a>
             <a href="{{ route('clas.index') }}">Menu Kelas</a>
         </nav>
+
     </header>
 
     <!-- Container -->
     <div class="container">
-        <a href="/siswa/create" class="btn btn-add">+ Tambah Siswa</a>
+        <a href="/clas/create" class="btn btn-add">+ Tambah Kelas</a>
 
         <table>
             <thead>
                 <tr>
-                    <th>Foto</th>
                     <th>Nama</th>
-                    <th>Kelas</th>
-                    <th>NISN</th>
-                    <th>Alamat</th>
-                    <th>Email</th>
+                    <th>Deskripsi</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($siswas as $siswa)
+                @foreach ($classes as $class)
                 <tr>
-                    <td><img src="{{ asset('storage/'.$siswa->photo) }}" alt=""></td>
-                    <td>{{ $siswa->name }}</td>
-                    <td>{{ $siswa->clas?->name }}</td>
-                    <td>{{ $siswa->nisn }}</td>
-                    <td>{{ $siswa->alamat }}</td>
-                    <td>{{ $siswa->email }}</td>
+                    <td>{{ $class->name }}</td>
+                    <td>{{ $class->description }}</td>
                     <td>
-                        <a href="/siswa/edit/{{ $siswa->id }}" class="btn btn-edit">Edit</a>
-                        <a href="/siswa/show/{{ $siswa->id }}" class="btn btn-detail">Detail</a>
-                        <a href="/siswa/delete/{{ $siswa->id }}" onclick="return confirm('Yakin ingin menghapus data ini?')" class="btn btn-delete">Delete</a>
+                        <a href="/clas/show/{{ $class->id }}" class="btn btn-edit" style="background-color:#87CEFA; color:white;">Detail</a>
+                        <a href="/clas/edit/{{ $class->id }}" class="btn btn-edit">Edit</a>
+                        <a href="/clas/delete/{{ $class->id }}" onclick="return confirm('Yakin ingin menghapus kelas ini?')" class="btn btn-delete">Delete</a>
                     </td>
                 </tr>
                 @endforeach
