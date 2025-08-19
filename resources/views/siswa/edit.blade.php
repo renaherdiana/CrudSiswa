@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Data Siswa</title>
+@extends('layouts.app')
+@section('css')
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -84,9 +80,8 @@
             color: #ff69b4;
         }
     </style>
-</head>
-<body>
-
+@endsection
+    @section('content')
     <div class="container">
         <h1>Edit Data Siswa</h1>
 
@@ -169,6 +164,5 @@
 
         <a href="/" class="back-btn">Kembali</a>
     </div>
+@endsection
 
-</body>
-</html>

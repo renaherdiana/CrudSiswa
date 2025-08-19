@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Siswa</title>
+@extends('layouts.app')
+@section('css')
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -153,19 +149,18 @@
             transform: scale(1.1);
         }
     </style>
-</head>
-<body>
+    @endsection
 
-    <!-- Header dengan menu -->
+
+     @section('content')
     <header>
         <div>📚 Data Siswa</div>
-         <nav>
+        <nav>
             <a href="{{ route('siswa.index') }}">Menu Siswa</a>
             <a href="{{ route('clas.index') }}">Menu Kelas</a>
         </nav>
     </header>
 
-    <!-- Container -->
     <div class="container">
         <a href="/siswa/create" class="btn btn-add">+ Tambah Siswa</a>
 
@@ -200,6 +195,4 @@
             </tbody>
         </table>
     </div>
-
-</body>
-</html>
+@endsection
