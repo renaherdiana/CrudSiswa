@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detail Siswa</title>
+@extends('layouts.app')
+@section('css')
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -78,9 +74,9 @@
             color: #fff; 
         }
     </style>
-</head>
-<body>
+    @endsection
 
+    @section('content')
     <div class="container">
         <h1>Detail Siswa</h1>
         <img src="{{ asset('storage/'.$datauser->photo) }}" alt="Foto Siswa" class="profile-img">
@@ -95,6 +91,5 @@
             <a href="/">← Kembali</a>
         </div>
     </div>
+@endsection
 
-</body>
-</html>

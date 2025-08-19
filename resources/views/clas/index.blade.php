@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Kelas</title>
+@extends('layouts.app')
+@section('css')
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -130,20 +126,17 @@
             background-color: #ffe6ef;
         }
     </style>
-</head>
-<body>
+    @endsection
 
-    <!-- Header dengan menu -->
+@section('content')
+
     <header>
-        <div>🏫 Data Kelas</div>
+        <div>📚 Data Siswa</div>
         <nav>
             <a href="{{ route('siswa.index') }}">Menu Siswa</a>
             <a href="{{ route('clas.index') }}">Menu Kelas</a>
         </nav>
-
     </header>
-
-    <!-- Container -->
     <div class="container">
         <a href="/clas/create" class="btn btn-add">+ Tambah Kelas</a>
 
@@ -170,6 +163,5 @@
             </tbody>
         </table>
     </div>
+@endsection
 
-</body>
-</html>

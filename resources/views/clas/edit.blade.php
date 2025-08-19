@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Kelas</title>
+@extends('layouts.app')
+@section('css')
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -85,9 +81,9 @@
             color: #ff69b4;
         }
     </style>
-</head>
-<body>
+    @endsection
 
+@section('content')
 <div class="container">
     <h1>Edit Kelas</h1>
 
@@ -116,6 +112,4 @@
 
     <a href="{{ route('clas.index') }}" class="back-btn">Kembali</a>
 </div>
-
-</body>
-</html>
+@endsection
